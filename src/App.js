@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 
 const api = {
-  key : "90ab34aee4382af5dd8aa78f0641d475",
+  key : "04ef1b1b13c9c33c272e2d758ab32d8d",
   base : "https://api/openweathermap.org/data/2.5/"
 }
 
@@ -26,13 +26,12 @@ function App() {
 
   const search = (e) => {
     if(e.key === "Enter"){
-      fetch(`https://api/openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${api.key}`).then(res => res.json()).then(result => {setWeather(result); setQuery('');
-    console.log(result);
-  });
+      fetch(`https://api/openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${api.key}`)
+      .then(res => res.json())
+      .catch(err => console.log("error", err))};
     }
-  };
-
-
+  
+  
  
   return (
     <div className="App">
