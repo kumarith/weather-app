@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 
 const api = {
-  key : "04ef1b1b13c9c33c272e2d758ab32d8d",
+  key : "cb1462ea21406aeb0bac3ad889ea684d",
   base : "https://api/openweathermap.org/data/2.5/"
 }
 
@@ -26,8 +26,9 @@ function App() {
 
   const search = (e) => {
     if(e.key === "Enter"){
-      fetch(`https://api/openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${api.key}`)
+      fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${api.key}`)
       .then(res => res.json())
+      .then(results => setWeather(results))
       .catch(err => console.log("error", err))};
     }
   
@@ -46,7 +47,7 @@ function App() {
           <div className="date">{dateBuilder(new Date())}</div>
         </div>
         <div className="weather-box">
-          <div className="temp">{Math.round(weather.main.temp)}</div>
+          <div className="temp">{Math.round(weather.main.temp)}{'\u00b0'}c</div>
           <div className="weather">{weather.weather[0].main}</div>
         </div>
           </div>
