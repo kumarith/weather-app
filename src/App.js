@@ -26,7 +26,7 @@ function App() {
 
   const search = (e) => {
     if(e.key === "Enter"){
-      fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${api.key}`)
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${api.key}`)
       .then(res => res.json())
       .then(results => setWeather(results))
       .catch(err => console.log("error", err))};
